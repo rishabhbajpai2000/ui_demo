@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_demo/SplashScreen.dart';
-import 'package:ui_demo/loginSignup.dart';
+import 'package:ui_demo/splash_screen.dart';
 
 class RobertFox extends StatefulWidget {
   const RobertFox({super.key});
@@ -17,34 +16,31 @@ class _RobertFoxState extends State<RobertFox> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => loginSignup()),
+          MaterialPageRoute(builder: (context) => const SplashScreen()),
         );
       },
       child: Scaffold(
-        backgroundColor: Color(0xffFBEDED),
-        // backgroundColor: Colors.purple,
+        backgroundColor: const Color(0xffFBEDED),
         body: Column(
           children: [
             Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.5,
-                color: Color(0xffFBEDED),
+                color: const Color(0xffFBEDED),
                 child: Stack(children: [
                   Image.asset('assets/RobertsHearts.png', fit: BoxFit.cover),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          //There will be a black circle icon
                           Icon(
                             Icons.circle,
                             color: Colors.black,
                             size: 10.0,
                           ),
-                          //,
                           Text(
                             " Its a date!",
                             style: TextStyle(
@@ -58,7 +54,7 @@ class _RobertFoxState extends State<RobertFox> {
                       Container(
                         width: 150,
                         height: 150,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.black,
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -67,19 +63,19 @@ class _RobertFoxState extends State<RobertFox> {
                           ),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "This meeting was Accepted by",
                         style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Poppins'),
                       ),
-                      Text("Robaert Fox",
+                      const Text("Robaert Fox",
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Poppins')),
-                      Text(
+                      const Text(
                         "in 1 week 2 days ",
                         style: TextStyle(
                             fontSize: 15,
@@ -92,7 +88,7 @@ class _RobertFoxState extends State<RobertFox> {
             Expanded(
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
@@ -102,7 +98,7 @@ class _RobertFoxState extends State<RobertFox> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("Meet Details ",
+                    const Text("Meet Details ",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -117,44 +113,40 @@ class _RobertFoxState extends State<RobertFox> {
                         padding: const EdgeInsets.all(15.0),
                         child: Column(
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text("Friday",
                                     style: TextStyle(
                                         fontSize: 20, fontFamily: 'Poppins')),
                                 Expanded(
-                                    child: Container(
-                                  child: Center(child: Text("|")),
-                                )),
+                                    child: Center(child: Text("|"))),
                                 Text("28/07/23",
                                     style: TextStyle(
                                         fontSize: 20, fontFamily: 'Poppins')),
                                 Expanded(
-                                    child: Container(
-                                  child: Center(child: Text("|")),
-                                )),
+                                    child: Center(child: Text("|"))),
                                 Text("10:00 PM(L)",
                                     style: TextStyle(
                                         fontSize: 20, fontFamily: 'Poppins'))
                               ],
                             ),
-                            Divider(
+                            const Divider(
                               color: Colors.grey,
                               thickness: 1,
                             ),
                             Row(
                               children: [
-                                Text("Location: ",
+                                const Text("Location: ",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                         fontFamily: 'Poppins')),
-                                Text("Aaha Food Court ",
+                                const Text("Aaha Food Court ",
                                     style: TextStyle(
                                         fontSize: 20, fontFamily: 'Poppins')),
                                 Expanded(child: Container()),
-                                Icon(
+                                const Icon(
                                   Icons.chevron_right_sharp,
                                   size: 30,
                                 )
@@ -171,7 +163,7 @@ class _RobertFoxState extends State<RobertFox> {
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Center(
+                      child: const Center(
                           child: Text(
                         "Cancel Meet",
                         style: TextStyle(
@@ -184,10 +176,10 @@ class _RobertFoxState extends State<RobertFox> {
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: 60,
                       decoration: BoxDecoration(
-                        color: Color(0xff762A39),
+                        color: const Color(0xff762A39),
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Center(
+                      child: const Center(
                           child: Text(
                         "Close",
                         style: TextStyle(

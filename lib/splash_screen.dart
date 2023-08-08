@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:ui_demo/login_signup.dart';
 
-import 'package:ui_demo/RobertFox.dart';
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
-class SplashScreen extends StatelessWidget {
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -11,12 +16,12 @@ class SplashScreen extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => RobertFox()),
+            MaterialPageRoute(builder: (context) => const LoginSignup()),
           );
         },
         child: Scaffold(
           body: Container(
-            color: Color(0xff762A39),
+            color: const Color(0xff762A39),
             child: Stack(
               children: [
                 Center(child: Image.asset('assets/Background.png')),
