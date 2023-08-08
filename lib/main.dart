@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui_demo/RobertFox.dart';
+import 'package:ui_demo/loginSignup.dart';
 
 import 'SplashScreen.dart';
 
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MyScreen(),
+      home: SplashScreen(),
     );
   }
 }
