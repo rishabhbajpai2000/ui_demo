@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ui_demo/Providers/LoginProvider.dart';
 
+import 'Providers/LoginProvider.dart';
 
-class LoginSignup extends StatefulWidget {
-  const LoginSignup({super.key});
+class EnterOtp extends StatefulWidget {
+  const EnterOtp({super.key});
 
   @override
-  State<LoginSignup> createState() => _LoginSignupState();
+  State<EnterOtp> createState() => _EnterOtpState();
 }
 
-class _LoginSignupState extends State<LoginSignup> {
-  String selectedCountryCode = '+91'; // Default selected country code
+class _EnterOtpState extends State<EnterOtp> {
   TextEditingController _numberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final newLoginProvider = Provider.of<LoginProvider>(context, listen: false);
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -45,7 +43,7 @@ class _LoginSignupState extends State<LoginSignup> {
                     ),
                     const SizedBox(height: 20),
                     const Text(
-                      'Mobile number',
+                      'Please Enter Your OTP',
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
@@ -54,43 +52,6 @@ class _LoginSignupState extends State<LoginSignup> {
                     const SizedBox(height: 15),
                     Row(
                       children: <Widget>[
-                        Container(
-                          height: 60,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: const Color(0xFFCBD4E1)),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButton<String>(
-                              value: selectedCountryCode,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  selectedCountryCode = newValue!;
-                                });
-                              },
-                              items: [
-                                '+91',
-                                '+63'
-                              ] // Add more country codes if needed
-                                  .map<DropdownMenuItem<String>>(
-                                (value) {
-                                  return DropdownMenuItem<String>(
-                                    value: value,
-                                    child: Text(
-                                      value,
-                                      style: const TextStyle(
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ).toList(),
-                              underline: Container(), // Remove the underline
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 5),
                         Expanded(
                           child: Container(
                             height: 60,
@@ -104,7 +65,7 @@ class _LoginSignupState extends State<LoginSignup> {
                               child: TextFormField(
                                 controller: _numberController,
                                 keyboardType: TextInputType.number,
-                                maxLength: 10,
+                                maxLength: 6,
                                 decoration: const InputDecoration(
                                   hintText: 'Enter here',
                                   hintStyle: TextStyle(color: Colors.grey),
@@ -137,32 +98,6 @@ class _LoginSignupState extends State<LoginSignup> {
                         const SizedBox(
                           width: 10,
                         ),
-                        RichText(
-                          text: const TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'I agree to the ',
-                                style: TextStyle(color: Color(0xFF64748B)),
-                              ),
-                              TextSpan(
-                                text: 'Terms & Conditions',
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    decoration: TextDecoration.underline),
-                              ),
-                              TextSpan(
-                                text: ' and \n',
-                                style: TextStyle(color: Color(0xFF64748B)),
-                              ),
-                              TextSpan(
-                                text: 'Privacy Statement.',
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    decoration: TextDecoration.underline),
-                              ),
-                            ],
-                          ),
-                        ),
                       ],
                     ),
                     const SizedBox(height: 20),
@@ -170,8 +105,10 @@ class _LoginSignupState extends State<LoginSignup> {
                       builder: (BuildContext context, value, Widget? child) {
                         return GestureDetector(
                           onTap: () async {
+                            print(
+                                "\n\n\n\n\n the send otp funciton was triggered");
                             await LoginProvider()
-                                .sendOtp(_numberController.text, context);
+                                .checkOtp(_numberController.text, context);
                           },
                           child: Center(
                             child: Container(
@@ -185,7 +122,7 @@ class _LoginSignupState extends State<LoginSignup> {
                                 ),
                               ),
                               child: const Text(
-                                'Get OTP',
+                                'Enter OTP',
                                 style: TextStyle(
                                   color: Colors.white,
                                 ),
